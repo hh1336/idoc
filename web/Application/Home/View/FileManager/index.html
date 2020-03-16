@@ -1,0 +1,42 @@
+<layout name="layout"/>
+
+<!--引入插件的css-->
+<link rel="stylesheet" type="text/css" href="{$uri}Public/webuploader/webuploader.css">
+
+<script src="{$uri}Public/Scripts/PSI/FileManager/MainForm.js?dt={$dtFlag}" type="text/javascript"></script>
+<script src="{$uri}Public/Scripts/PSI/FileManager/AddOrEditDirForm.js?dt={$dtFlag}" type="text/javascript"></script>
+<script src="{$uri}Public/Scripts/PSI/FileManager/UploadMultiple.js?dt={$dtFlag}" type="text/javascript"></script>
+<script src="{$uri}Public/Scripts/PSI/FileManager/EditFile.js?dt={$dtFlag}" type="text/javascript"></script>
+<script src="{$uri}Public/Scripts/PSI/ActionLog/ActionLog.js?dt={$dtFlag}" type="text/javascript"></script>
+<script src="{$uri}Public/Scripts/PSI/ActionLog/FileVersions.js?dt={$dtFlag}" type="text/javascript"></script>
+
+
+<!--引入插件-->
+<script src="{$uri}Public/webuploader/jquery-2.2.4.min.js?dt={$dtFlag}" type="text/javascript"></script>
+<script src="{$uri}Public/webuploader/webuploader.js?dt={$dtFlag}" type="text/javascript"></script>
+
+
+<script>
+    Ext.onReady(function () {
+        var app = Ext.create('PSI.App', {
+            userName: "{$loginUserName}",
+            productionName: "{$productionName}",
+            showCopyright: true
+        })
+        app.add(Ext.create('PSI.FileManager.MainForm', {
+            AddDir: "{$AddDir}",
+            EditDir: "{$EditDir}",
+            DeleteDir: "{DeleteDir}",
+            InvalidDir: "{InvalidDir}",
+            UpFile: "{$UpFile}",
+            DeleteFile: "{$DeleteFile}",
+            EditFile: "{$EditFile}",
+            InvalidFile: "{$InvalidFile}",
+            ActionLog:"{$ActionLog}"
+        }));
+        app.setAppHeader({
+            title: "{$title}",
+            iconCls: "PSI-fid-3001"
+        });
+    })
+</script>
